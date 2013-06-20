@@ -27,7 +27,7 @@
   </joint>
 
   <joint name="elbow" type="continuous">
-    <parent link="upper_arm"/>
+    <parent link="upper_arm"></parent>
     <child link="lower_arm"></child>
     <origin xyz="0 .131 0" rpy="-1.5 0 0"></origin>
     <axis xyz="1 0 0"></axis>
@@ -41,11 +41,12 @@
   
   <joint name="wrist2" type="continuous">
     <parent link="wrist1"/>
-    <child link="wrist2"/>
+    <child link="wrist2"/><origin xyz="0 0.05 0"></origin>
+  	<axis xyz="1 0 0"></axis>
   </joint>
   
   <joint name="wrist3" type="continuous">
     <parent link="wrist2"/>
-    <child link="stylus"/>
+    <child link="stylus"/><origin xyz="0 0.01 0" /><axis xyz="0 1 0" />
   </joint>
 </robot>
