@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+    xmlns="http://www.ros.org/wiki/urdf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=
+    "https://raw.github.com/laas/urdf_validator/master file:urdf.xsd"
+    name="omni">
+  <link name="base" ></link>
+  <link name="shoulder" />
+  <link name="upper_arm" />
+  <link name="lower_arm" />
+  <link name="wrist1" />
+  <link name="wrist2" />
+  <link name="stylus" />
+
+  <joint name="waist" type="continuous">
+    <parent link="base"/>
+    <child link="shoulder"/>
+    <origin xyz="0 0 0.09" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="shoulder" type="continuous">
+    <parent link="shoulder"/>
+    <child link="upper_arm"/><origin xyz="0 0 0.06" rpy="0 0 0"></origin>
+  	<axis xyz="1 0 0"></axis>
+  </joint>
+
+  <joint name="elbow" type="continuous">
+    <parent link="upper_arm"/>
+    <child link="lower_arm"></child>
+    <origin xyz="0 .131 0" rpy="-1.5 0 0"></origin>
+    <axis xyz="1 0 0"></axis>
+  </joint>
+  
+  <joint name="wrist1" type="continuous">
+    <parent link="lower_arm"/>
+    <child link="wrist1"/><origin xyz="0 .137 0"></origin>
+  	<axis xyz="0 1 0"></axis>
+  </joint>
+  
+  <joint name="wrist2" type="continuous">
+    <parent link="wrist1"/>
+    <child link="wrist2"/>
+  </joint>
+  
+  <joint name="wrist3" type="continuous">
+    <parent link="wrist2"/>
+    <child link="stylus"/>
+  </joint>
+</robot>
